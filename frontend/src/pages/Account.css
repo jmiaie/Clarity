@@ -1,0 +1,77 @@
+.account-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.account-container h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.account-container .subtitle {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.account-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.account-section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.account-section p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 14px;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 360px;
+}
+
+.account-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.account-form input {
+  padding: 10px 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.account-form button {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.danger-zone {
+  border-color: #fecaca;
+}
+
+.danger-zone h2 {
+  color: #b91c1c;
+}
+
+@media (max-width: 640px) {
+  .account-container {
+    padding: 20px 14px;
+  }
+}

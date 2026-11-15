@@ -1,0 +1,346 @@
+.calendar-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.calendar-header .header-left h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+/* Productivity Score */
+.productivity-score-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  color: white;
+}
+
+.score-circle {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.score-value {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+.score-recommendation {
+  flex: 1;
+}
+
+.score-recommendation h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.score-recommendation p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Insights Section */
+.insights-section {
+  margin-bottom: 32px;
+}
+
+.insights-section h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insight-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.insight-score {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.insight-content {
+  flex: 1;
+}
+
+.insight-category {
+  font-size: 11px;
+  font-weight: 700;
+  color: #667eea;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.insight-content p {
+  font-size: 16px;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 64px 32px;
+}
+
+.empty-icon {
+  font-size: 72px;
+  margin-bottom: 24px;
+}
+
+.empty-state h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.empty-state > p {
+  color: #6b7280;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+.instructions-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.instructions-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.instructions-card ol {
+  margin-left: 20px;
+  color: #374151;
+  line-height: 1.8;
+}
+
+.instructions-card li {
+  margin-bottom: 8px;
+}
+
+.instructions-card a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.instructions-card a:hover {
+  text-decoration: underline;
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+/* Calendar Actions */
+.calendar-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 32px;
+  gap: 16px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 16px;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .productivity-score-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+    gap: 24px;
+  }
+
+  .score-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .score-value {
+    font-size: 48px;
+  }
+
+  .score-recommendation h3 {
+    font-size: 18px;
+  }
+
+  .score-recommendation p {
+    font-size: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .insight-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .insight-score {
+    margin: 0 auto;
+  }
+}
+
+/* ---------- additions ---------- */
+
+.privacy-note {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+.instructions-card h4 + ol {
+  margin-bottom: 16px;
+}
+
+.observation-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.observation-list li {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+.method-note {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6b7280;
+}

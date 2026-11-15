@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
+
+# Local data and secrets: never commit these
+*.db
+.env
+.env.*
+!.env.example
+backend/.dev-secret-key
+
+# Node
+node_modules/
+dist/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

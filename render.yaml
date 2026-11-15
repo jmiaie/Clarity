@@ -1,0 +1,25 @@
+# Render blueprint for the API. The database is deliberately not created here:
+# Render's free Postgres is deleted 30 days after creation, so point DATABASE_URL
+# at a database you intend to keep (see DEPLOYMENT-GUIDE.md).
+services:
+  - type: web
+    name: clarity-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: ENVIRONMENT
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: SIGNUP_CODE
+        sync: false
