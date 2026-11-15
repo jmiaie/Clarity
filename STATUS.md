@@ -2,40 +2,26 @@
 
 Last updated: 2026-11-14
 
-## Verified in the build sandbox
+## Verified
 
-- **Backend logic, 54 tests passing:** calendar import (timezones, repeating events,
-  DST, exceptions, declined/all-day/cancelled handling, Outlook CSV), pattern
-  analysis (thresholds, exact test, calendar statistics), quiz scoring, settings
-  safety checks, token handling, rate limiter, request validation.
-- **Frontend type-check:** passes under strict settings, using stand-in type
-  declarations for React, React Router and Vite (those packages could not be
-  installed in the sandbox).
-- **Browser run-through at phone size (390x844):** signup, journal create/edit/
-  search, calendar upload (including the ZIP mistake), patterns before and after
-  history, quiz, dashboard, data export, account deletion. 21 checks passed with
-  no console errors. This ran the real frontend code and the real import/analysis/
-  quiz/validation code, but through a temporary stand-in for the web and database
-  layer (see below).
+| Check | Where | Result |
+|---|---|---|
+| Backend test suite (logic + 14 end-to-end API tests + password hashing) | Vercel sandbox, Python 3.14, real FastAPI/SQLAlchemy/bcrypt | 69 passed |
+| End-to-end API tests against Postgres 18 | Vercel sandbox | 14 passed |
+| Frontend production build (`tsc && vite build`) | Vercel sandbox, real React/Vite types | passed |
+| API build on Vercel | Vercel, Python 3.12 | built; starts only once `DATABASE_URL` is set (by design) |
+| Web app build on Vercel | Vercel | live |
+| Phone-size browser run-through | earlier sandbox, stand-in web layer | 21 checks passed |
 
-## Not yet run anywhere
+## Deployment
 
-Package installation was blocked in the sandbox, so FastAPI, SQLAlchemy and bcrypt
-were not available. As a result:
+- Web: https://clarity-web-olive.vercel.app (project `clarity-web`, root `frontend/`)
+- API: https://clarity-api-jeffreymilam-2640s-projects.vercel.app (project `clarity-api`, root `backend/`)
+- Branch deployed: `app-mvp`
+- Sign-up requires the invite code stored in the `SIGNUP_CODE` setting of `clarity-api`.
 
-- `backend/tests/test_api.py` (14 end-to-end tests through the real HTTP layer and
-  a real database) is written but has **not been executed**.
-- The password-hashing test is skipped for the same reason.
-- `npm run build` with the real Vite toolchain has **not been executed**.
-- Nothing has been deployed. There are no live URLs.
+## Open
 
-`./check.sh` runs all of the above in one command. The GitHub Actions workflow in
-`.github/workflows/ci.yml` runs the same checks on every push. Treat the first green
-run of either as the gate before inviting anyone.
-
-## Before inviting alpha users
-
-1. `./check.sh` passes locally (or CI is green).
-2. Deploy following `DEPLOYMENT-GUIDE.md`, with `SIGNUP_CODE` set.
-3. Sign up on the deployed site, write an entry, upload your own calendar export,
-   and confirm the numbers on the Calendar page look right for a week you remember.
+- Postgres database for `clarity-api` (Neon via the Vercel Storage tab).
+- No email-based password reset; use `backend/scripts/reset_password.py`.
+- No database migrations yet.
